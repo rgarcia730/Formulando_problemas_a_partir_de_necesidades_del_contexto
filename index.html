@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Brecha Digital en la Educación de Bogotá D.C. (2025-2026)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#1d4ed8',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c2340',
+              accent: '#f59e0b',
+              teal: '#0d9488'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Efecto blueprint de fondo inspirado en la carátula académica */
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+    .blueprint-grid-light {
+      background-size: 30px 30px;
+      background-image: 
+        linear-gradient(to right, rgba(12, 35, 64, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(12, 35, 64, 0.05) 1px, transparent 1px);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .slide-active {
+      display: flex !important;
+      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.99); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-sky-500 selection:text-white">
+
+  <!-- Header / Barra de Navegación Superior -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-900 to-sky-600 flex items-center justify-center text-white shadow-md shadow-sky-600/20">
+          <i data-lucide="book-open" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <span class="block text-xs font-semibold uppercase tracking-wider text-sky-700">Identificación de problemáticas sociales para la investigación</span>
+          <span class="font-display font-bold text-sm sm:text-base text-slate-900">Brecha Digital Educativa · Bogotá D.C.</span>
+        </div>
+      </div>
+
+      <!-- Control de vista: Web / Presentación -->
+      <div class="flex items-center gap-2">
+        <div class="bg-slate-100 p-1 rounded-xl flex items-center border border-slate-200 text-xs font-medium">
+          <button id="viewPortalBtn" onclick="switchMode('portal')" class="px-3 py-1.5 rounded-lg bg-white shadow-sm text-slate-900 font-semibold transition flex items-center gap-1.5">
+            <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+            <span class="hidden sm:inline">Artículo Completo</span>
+          </button>
+          <button id="viewDeckBtn" onclick="switchMode('deck')" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5">
+            <i data-lucide="presentation" class="w-3.5 h-3.5"></i>
+            <span>Modo Diapositivas</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- VISTA 1: MODO PORTAL WEB INTERACTIVO       -->
+  <!-- ========================================== -->
+  <main id="portalView" class="space-y-16 pb-24">
+
+    <!-- 1. HERO SECTION / PORTADA -->
+    <section class="relative bg-brand-900 text-white pt-20 pb-28 px-4 sm:px-6 lg:px-8 blueprint-grid overflow-hidden border-b border-sky-900/60">
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-900 via-transparent to-brand-900/80 pointer-events-none"></div>
+      
+      <!-- Detalle visual arquitectónico -->
+      <div class="absolute -right-20 -bottom-20 w-96 h-96 border border-sky-400/20 rounded-full pointer-events-none"></div>
+      <div class="absolute -right-10 -bottom-10 w-72 h-72 border border-sky-400/10 rounded-full pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto relative z-10 text-center">
+        <span class="inline-block text-xs uppercase font-bold tracking-widest text-sky-300 bg-sky-950/80 px-3.5 py-1.5 rounded-full border border-sky-800/80 mb-6">
+          Identificación de problemáticas sociales para la investigación
+        </span>
+
+        <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight text-white mb-6">
+          LA BRECHA DIGITAL EN LA EDUCACIÓN DE <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-teal-300">BOGOTÁ D.C.</span>
+        </h1>
+
+        <p class="text-lg sm:text-xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed mb-8">
+          Barreras de Acceso Tecnológico en Instituciones Educativas Distritales. Una exploración empírica centrada en la vivencia de familias y docentes en el contexto urbano periférico.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 pt-6 border-t border-slate-700/60 text-sm">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-sky-800/80 border border-sky-400/30 flex items-center justify-center font-bold text-sky-200 shrink-0">
+              RG
+            </div>
+            <div class="text-left">
+              <p class="font-medium text-white">Rubén Darío García</p>
+              <p class="text-xs text-sky-300">Investigador Principal</p>
+            </div>
+          </div>
+
+          <div class="h-8 w-px bg-slate-700 hidden sm:block"></div>
+
+          <div class="flex items-center gap-3 text-slate-300">
+            <i data-lucide="graduation-cap" class="w-5 h-5 text-sky-400 shrink-0"></i>
+            <div class="text-left">
+              <p class="font-medium text-white">Competencias investigativas</p>
+              <p class="text-xs text-slate-300">Actividad 5 - Formulando problemas a partir de necesidades del contexto</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. LA REALIDAD OBSERVADA EN EL CONTEXTO URBANO -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-sky-600 mb-2">Contexto</h2>
+        <p class="font-display text-2xl sm:text-3xl font-bold text-slate-900">La Realidad Observada en el Contexto Urbano</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-7 rounded-2xl border border-amber-200 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-5 border border-amber-100">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Inequidad Socioespacial</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Enfoque en localidades periféricas de Bogotá D.C. Infraestructura de conectividad urbana marginal y fragmentada.
+          </p>
+        </div>
+
+        <div class="bg-white p-7 rounded-2xl border border-teal-200 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-5 border border-teal-100">
+            <i data-lucide="home" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Entorno del Hogar</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Uso compartido e insuficiente de dispositivos. Smartphones compartidos entre múltiples hermanos; escasez de computadores dedicados al estudio.
+          </p>
+        </div>
+
+        <div class="bg-white p-7 rounded-2xl border border-sky-200 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-5 border border-sky-100">
+            <i data-lucide="school" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Barreras Pedagógicas</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Desconexión estructural entre el currículo digital exigido y los recursos reales. Brecha de habilidades y herramientas en las aulas de la red pública.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DELIMITACIÓN DEL PROBLEMA DE INVESTIGACIÓN -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-sky-600 mb-2">Alcance Metodológico</h2>
+        <p class="font-display text-2xl sm:text-3xl font-bold text-slate-900">Delimitación del Problema de Investigación</p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-5 bg-white border border-slate-200 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 shadow-sm">
+          <span class="text-xs uppercase tracking-wider font-bold text-slate-500">Categorías Centrales</span>
+          <span class="font-semibold text-slate-900 sm:text-right text-sky-800">Brecha Digital y Barreras de Acceso Tecnológico</span>
+        </div>
+
+        <div class="p-5 bg-white border border-slate-200 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 shadow-sm">
+          <span class="text-xs uppercase tracking-wider font-bold text-slate-500">Unidad de Análisis</span>
+          <span class="font-medium text-slate-800 sm:text-right">Familias y Docentes del sector público</span>
+        </div>
+
+        <div class="p-5 bg-white border border-slate-200 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 shadow-sm">
+          <span class="text-xs uppercase tracking-wider font-bold text-slate-500">Delimitación Espacial</span>
+          <span class="font-medium text-slate-800 sm:text-right">Instituciones Educativas Distritales (IED) en el contexto urbano periférico de Bogotá D.C.</span>
+        </div>
+
+        <div class="p-5 bg-amber-50/70 border border-amber-200 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 shadow-sm">
+          <span class="text-xs uppercase tracking-wider font-bold text-amber-800">Delimitación Temporal</span>
+          <span class="font-bold text-amber-950 sm:text-right">Ciclo lectivo 2025–2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FORMULACIÓN ESTRUCTURAL DE LA PREGUNTA -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-6">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-sky-600 mb-2">Núcleo Epistémico</h2>
+      </div>
+
+      <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm relative">
+        <div class="absolute -top-3.5 left-8 px-4 py-1 rounded-full bg-sky-600 text-white text-xs font-bold uppercase tracking-wider">
+          Formulación Estructural de la Pregunta
+        </div>
+
+        <blockquote class="text-xl sm:text-2xl font-serif text-slate-900 leading-relaxed pt-2 text-center">
+          "¿Cuáles son las <span class="font-bold text-sky-700 bg-sky-50 px-1 rounded">barreras de acceso tecnológico y pedagógico</span> que configuran la brecha digital en las dinámicas educativas de <span class="font-bold text-teal-700 bg-teal-50 px-1 rounded">familias y docentes</span> pertenecientes a <span class="font-bold text-indigo-700 bg-indigo-50 px-1 rounded">Instituciones Educativas Distritales en localidades periféricas</span> de Bogotá D.C. durante el periodo <span class="font-bold text-amber-700 bg-amber-50 px-1 rounded">2025-2026</span>?"
+        </blockquote>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-100 text-center">
+          <div class="p-3.5 rounded-xl bg-sky-50 border border-sky-100">
+            <p class="text-xs font-bold text-sky-800 uppercase">Categoría</p>
+            <p class="text-xs text-sky-600 mt-0.5">(Constructo teórico de interés investigativo)</p>
+            <p class="text-sm font-medium text-slate-800 mt-1.5">Barreras de acceso tecnológico y pedagógico</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-teal-50 border border-teal-100">
+            <p class="text-xs font-bold text-teal-800 uppercase">Unidad de Análisis</p>
+            <p class="text-xs text-teal-600 mt-0.5">(Grupo humano participante)</p>
+            <p class="text-sm font-medium text-slate-800 mt-1.5">Familias y docentes de IED</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-amber-50 border border-amber-100">
+            <p class="text-xs font-bold text-amber-800 uppercase">Delimitación</p>
+            <p class="text-xs text-amber-600 mt-0.5">(Coordenadas espaciales y temporales)</p>
+            <p class="text-sm font-medium text-slate-800 mt-1.5">Localidades periféricas Bogotá D.C. (2025–2026)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. LA RUTA DE ACCIÓN: OBJETIVOS SECUENCIALES -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-sky-600 mb-2">Plan de Acción</h2>
+        <p class="font-display text-2xl sm:text-3xl font-bold text-slate-900">La Ruta de Acción: Objetivos Secuenciales</p>
+      </div>
+
+      <!-- Objetivo General Card -->
+      <div class="mb-8 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-slate-900 to-sky-950 text-white border border-slate-800 shadow-md">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-3 h-3 rounded-full bg-sky-400"></span>
+          <h3 class="text-xs font-bold uppercase tracking-widest text-sky-300">Objetivo General</h3>
+        </div>
+        <p class="text-lg sm:text-xl font-medium leading-relaxed text-slate-100">
+          Analizar las barreras de acceso tecnológico que configuran la brecha digital en las IED de localidades periféricas de Bogotá (2025–2026) para comprender su impacto en el proceso educativo.
+        </p>
+      </div>
+
+      <!-- Objetivos Específicos Escalonados -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- OE 1 -->
+        <div class="relative bg-white rounded-2xl p-6 border-l-4 border-l-sky-500 border border-slate-200 shadow-sm hover:-translate-y-1 transition duration-200">
+          <div class="text-xs font-bold text-sky-600 uppercase mb-2">O.E. 1 (Fase Diagnóstica)</div>
+          <h4 class="font-display font-bold text-lg text-slate-900 mb-2">
+            <span class="text-sky-600 font-black">Identificar</span> barreras de infraestructura
+          </h4>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Identificar las barreras de infraestructura física y conectividad en las instituciones.
+          </p>
+        </div>
+
+        <!-- OE 2 -->
+        <div class="relative bg-white rounded-2xl p-6 border-l-4 border-l-teal-500 border border-slate-200 shadow-sm hover:-translate-y-1 transition duration-200">
+          <div class="text-xs font-bold text-teal-600 uppercase mb-2">O.E. 2 (Fase Fenomenológica)</div>
+          <h4 class="font-display font-bold text-lg text-slate-900 mb-2">
+            <span class="text-teal-600 font-black">Indagar</span> vivencias familiares
+          </h4>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Indagar las vivencias y estrategias de adaptación de las familias frente a la escasez de dispositivos.
+          </p>
+        </div>
+
+        <!-- OE 3 -->
+        <div class="relative bg-white rounded-2xl p-6 border-l-4 border-l-amber-500 border border-slate-200 shadow-sm hover:-translate-y-1 transition duration-200">
+          <div class="text-xs font-bold text-amber-600 uppercase mb-2">O.E. 3 (Fase Analítica)</div>
+          <h4 class="font-display font-bold text-lg text-slate-900 mb-2">
+            <span class="text-amber-600 font-black">Analizar</span> retos pedagógicos
+          </h4>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Analizar los retos pedagógicos digitales que enfrentan los docentes en sus aulas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FUNDAMENTOS QUE JUSTIFICAN EL ESTUDIO -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="bg-slate-100 rounded-3xl p-8 sm:p-12 border border-slate-200">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h2 class="text-xs uppercase font-bold tracking-widest text-sky-600 mb-2">Fundamentación</h2>
+          <p class="font-display text-2xl sm:text-3xl font-bold text-slate-900">Fundamentos que Justifican el Estudio</p>
+          <p class="text-slate-600 text-sm mt-2">La intersección de estos tres pilares constituye la solidez de la propuesta investigativa.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center font-bold mb-4">
+              <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Relevancia Social</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Aporta datos urgentes sobre la inequidad educativa para guiar el diseño de futuras políticas públicas distritales.
+            </p>
+          </div>
+
+          <div class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold mb-4">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Aporte Disciplinar</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Contribuye a la sociología de la educación documentando la pandemia silenciosa de la desigualdad digital post-2020.
+            </p>
+          </div>
+
+          <div class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold mb-4">
+              <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Viabilidad</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Factibilidad metodológica alta al delimitar el trabajo de campo a instituciones accesibles en un periodo cerrado (2025–2026).
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center bg-gradient-to-r from-sky-600 to-teal-600 text-white py-3.5 px-6 rounded-2xl font-medium text-sm shadow-sm">
+          ✨ Intersección de los tres ejes: <strong>Justificación Sólida</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. RIGOR CIENTÍFICO: ERRORES METODOLÓGICOS EVITADOS -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-sky-600 mb-2">Metodología Crítica</h2>
+        <p class="font-display text-2xl sm:text-3xl font-bold text-slate-900">Rigor Científico: Errores Metodológicos Evitados</p>
+      </div>
+
+      <div class="overflow-hidden bg-white rounded-2xl border border-slate-200 shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider font-semibold">
+              <th class="py-4 px-6 w-1/3">El Riesgo Metodológico</th>
+              <th class="py-4 px-6 w-2/3">Nuestra Estrategia</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-sm">
+            <tr class="hover:bg-slate-50 transition">
+              <td class="py-4 px-6 font-semibold text-rose-700 flex items-center gap-2">
+                <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0 text-rose-500"></i>
+                Prescribir soluciones prematuras.
+              </td>
+              <td class="py-4 px-6 text-slate-700 leading-relaxed">
+                <strong class="text-slate-900 font-medium">Enfoque netamente comprensivo (inductivo);</strong> buscamos entender el fenómeno sin imponer intervenciones tecnológicas prefabricadas.
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-50 transition">
+              <td class="py-4 px-6 font-semibold text-rose-700 flex items-center gap-2">
+                <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0 text-rose-500"></i>
+                Acumular múltiples problemas inconexos.
+              </td>
+              <td class="py-4 px-6 text-slate-700 leading-relaxed">
+                <strong class="text-slate-900 font-medium">Estricta delimitación</strong> en una sola categoría principal (barreras de acceso) dentro de una población específica.
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-50 transition">
+              <td class="py-4 px-6 font-semibold text-rose-700 flex items-center gap-2">
+                <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0 text-rose-500"></i>
+                Uso inadecuado del alcance investigativo.
+              </td>
+              <td class="py-4 px-6 text-slate-700 leading-relaxed">
+                <strong class="text-slate-900 font-medium">Mantenemos un diseño cualitativo fenomenológico puro:</strong> el foco son las vivencias reales, no la cuantificación estadística de la conectividad.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 8. FUNDACIÓN TEÓRICA Y METODOLÓGICA -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="p-2.5 rounded-xl bg-sky-100 text-sky-800">
+            <i data-lucide="library" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="font-display font-bold text-xl sm:text-2xl text-slate-900">Fundación Teórica y Metodológica</h2>
+            <p class="text-xs text-slate-500">Referencias académicas base de la propuesta de investigación</p>
+          </div>
+        </div>
+
+        <ul class="space-y-4 text-sm text-slate-700">
+          <li class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3">
+            <i data-lucide="bookmark" class="w-4 h-4 text-sky-600 mt-0.5 shrink-0"></i>
+            <div>
+              <p class="font-serif leading-relaxed">
+                <strong>Bonilla-Castro, E., & Rodríguez, S. (2013).</strong> <em>Más Allá del Dilema de los Métodos: La investigación en ciencias sociales.</em> Ediciones Uniandes.
+              </p>
+            </div>
+          </li>
+
+          <li class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3">
+            <i data-lucide="bookmark" class="w-4 h-4 text-teal-600 mt-0.5 shrink-0"></i>
+            <div>
+              <p class="font-serif leading-relaxed">
+                <strong>Hernández-Sampieri, R., & Mendoza, C. P. (2018).</strong> <em>Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta.</em> McGraw Hill México.
+              </p>
+            </div>
+          </li>
+
+          <li class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-3">
+            <i data-lucide="bookmark" class="w-4 h-4 text-amber-600 mt-0.5 shrink-0"></i>
+            <div>
+              <p class="font-serif leading-relaxed">
+                <strong>Ramos Galarza, C. A. (2016).</strong> La pregunta de investigación. <em>Revista PUCE</em>, (103), 23-32.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- VISTA 2: MODO DIAPOSITIVAS INTERACTIVAS    -->
+  <!-- ========================================== -->
+  <section id="deckView" class="hidden min-h-[calc(100vh-4rem)] bg-slate-900 blueprint-grid relative py-8 px-4 flex-col justify-center items-center">
+    
+    <!-- Contenedor de la Diapositiva -->
+    <div class="w-full max-w-4xl bg-white rounded-3xl shadow-2xl border border-slate-700/50 overflow-hidden relative flex flex-col min-h-[520px]">
+      
+      <!-- Top Bar Diapositiva -->
+      <div class="px-6 py-3 bg-slate-100 border-b border-slate-200 flex items-center justify-between text-xs text-slate-500 font-medium">
+        <span class="flex items-center gap-1.5 font-semibold text-slate-700">
+          <i data-lucide="monitor" class="w-3.5 h-3.5 text-sky-600"></i>
+          Presentación de Propuesta
+        </span>
+        <span id="slideIndicator" class="bg-slate-200 px-2 py-0.5 rounded text-slate-800 font-mono">1 / 8</span>
+      </div>
+
+      <!-- Slide 1: Portada -->
+      <div class="slide p-8 sm:p-14 flex-1 flex flex-col justify-between slide-active bg-brand-900 text-white blueprint-grid" data-index="1">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-widest text-sky-400 bg-sky-950 px-3 py-1 rounded border border-sky-800">Identificación de problemáticas sociales para la investigación</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-white mt-6 leading-tight">
+            LA BRECHA DIGITAL EN LA EDUCACIÓN DE BOGOTÁ D.C.
+          </h2>
+          <p class="text-sky-200 text-lg sm:text-xl font-light mt-3">
+            Barreras de Acceso Tecnológico en Instituciones Educativas Distritales
+          </p>
+        </div>
+        <div class="pt-8 border-t border-slate-700 flex flex-wrap justify-center items-center gap-6 sm:gap-10 text-xs sm:text-sm text-slate-300">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-sky-800/80 border border-sky-400/30 flex items-center justify-center font-bold text-sky-200 shrink-0 text-xs">
+              RG
+            </div>
+            <div class="text-left">
+              <p class="text-white font-semibold">Rubén Darío García</p>
+              <p class="text-sky-300">Investigador Principal</p>
+            </div>
+          </div>
+
+          <div class="h-6 w-px bg-slate-700 hidden sm:block"></div>
+
+          <div class="flex items-center gap-2.5 text-left">
+            <i data-lucide="graduation-cap" class="w-4 h-4 text-sky-400 shrink-0"></i>
+            <div>
+              <p class="text-white font-semibold">Competencias investigativas</p>
+              <p class="text-slate-400 text-xs">Actividad 5 - Formulando problemas a partir de necesidades del contexto</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Realidad Observada -->
+      <div class="slide p-8 sm:p-12 flex-1 hidden flex-col justify-between" data-index="2">
+        <div>
+          <h3 class="text-xs font-bold uppercase text-sky-600 tracking-wider">Contexto</h3>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mt-1 mb-8">La Realidad Observada en el Contexto Urbano</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="bg-amber-50/60 p-5 rounded-2xl border border-amber-200">
+              <div class="text-amber-600 font-bold mb-2 flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-5 h-5"></i> Inequidad Socioespacial
+              </div>
+              <p class="text-slate-600 text-xs leading-relaxed">Focalizado en localidades periféricas. Infraestructura de conectividad urbana marginal y fragmentada.</p>
+            </div>
+
+            <div class="bg-teal-50/60 p-5 rounded-2xl border border-teal-200">
+              <div class="text-teal-600 font-bold mb-2 flex items-center gap-2">
+                <i data-lucide="home" class="w-5 h-5"></i> Entorno del Hogar
+              </div>
+              <p class="text-slate-600 text-xs leading-relaxed">Dispositivos compartidos e insuficientes. Teléfonos compartidos entre hermanos y carencia de PCs de estudio.</p>
+            </div>
+
+            <div class="bg-sky-50/60 p-5 rounded-2xl border border-sky-200">
+              <div class="text-sky-600 font-bold mb-2 flex items-center gap-2">
+                <i data-lucide="school" class="w-5 h-5"></i> Barreras Pedagógicas
+              </div>
+              <p class="text-slate-600 text-xs leading-relaxed">Desconexión entre el currículo digital exigido y los recursos reales disponibles en las aulas distritales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Delimitación -->
+      <div class="slide p-8 sm:p-12 flex-1 hidden flex-col justify-between" data-index="3">
+        <div>
+          <h3 class="text-xs font-bold uppercase text-sky-600 tracking-wider">Alcance Metodológico</h3>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mt-1 mb-6">Delimitación del Problema</h2>
+          
+          <div class="space-y-3">
+            <div class="p-3.5 bg-slate-100 rounded-xl flex justify-between items-center text-xs sm:text-sm">
+              <span class="font-bold text-slate-800">Categorías Centrales:</span>
+              <span class="text-sky-700 font-semibold">Brecha Digital y Barreras de Acceso Tecnológico</span>
+            </div>
+            <div class="p-3.5 bg-slate-100 rounded-xl flex justify-between items-center text-xs sm:text-sm">
+              <span class="font-bold text-slate-800">Unidad de Análisis:</span>
+              <span class="text-slate-700">Familias y Docentes del sector público</span>
+            </div>
+            <div class="p-3.5 bg-slate-100 rounded-xl flex justify-between items-center text-xs sm:text-sm">
+              <span class="font-bold text-slate-800">Delimitación Espacial:</span>
+              <span class="text-slate-700">IED en localidades periféricas de Bogotá D.C.</span>
+            </div>
+            <div class="p-3.5 bg-amber-50 rounded-xl border border-amber-200 flex justify-between items-center text-xs sm:text-sm">
+              <span class="font-bold text-amber-900">Delimitación Temporal:</span>
+              <span class="text-amber-800 font-bold">Ciclo lectivo 2025–2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Pregunta de Investigación -->
+      <div class="slide p-8 sm:p-12 flex-1 hidden flex-col justify-between" data-index="4">
+        <div>
+          <h3 class="text-xs font-bold uppercase text-sky-600 tracking-wider">Núcleo Epistémico</h3>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mt-1 mb-6">Formulación Estructural de la Pregunta</h2>
+          
+          <div class="p-6 bg-sky-50/70 border border-sky-200 rounded-2xl text-slate-800 font-serif sm:text-lg leading-relaxed text-center shadow-inner">
+            "¿Cuáles son las <span class="font-bold text-sky-900">barreras de acceso tecnológico y pedagógico</span> que configuran la brecha digital en las dinámicas educativas de <span class="font-bold text-teal-800">familias y docentes</span> pertenecientes a <span class="font-bold text-indigo-800">Instituciones Educativas Distritales en localidades periféricas</span> de Bogotá D.C. durante el periodo <span class="font-bold text-amber-800">2025-2026</span>?"
+          </div>
+        </div>
+        <div class="text-xs text-center text-slate-500 font-mono">
+          Estructura validada bajo criterios metodológicos de Ramos Galarza (2016)
+        </div>
+      </div>
+
+      <!-- Slide 5: Objetivos -->
+      <div class="slide p-8 sm:p-12 flex-1 hidden flex-col justify-between" data-index="5">
+        <div>
+          <h3 class="text-xs font-bold uppercase text-sky-600 tracking-wider">Plan de Acción</h3>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mt-1 mb-4">Objetivos Secuenciales</h2>
+          
+          <div class="p-4 bg-slate-900 text-white rounded-xl mb-4 text-xs sm:text-sm leading-relaxed">
+            <span class="text-sky-400 font-bold block mb-1">OBJETIVO GENERAL:</span>
+            Analizar las barreras de acceso tecnológico que configuran la brecha digital en las IED de localidades periféricas de Bogotá (2025-2026) para comprender su impacto en el proceso educativo.
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+              <span class="font-bold text-sky-600 block">O.E. 1 (Diagnóstico)</span>
+              Identificar barreras de infraestructura física y conectividad en las instituciones.
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+              <span class="font-bold text-teal-600 block">O.E. 2 (Fenomenológico)</span>
+              Indagar vivencias y adaptación familiar ante escasez de dispositivos.
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+              <span class="font-bold text-amber-600 block">O.E. 3 (Analítico)</span>
+              Analizar los retos pedagógicos digitales que enfrentan los docentes.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Justificación -->
+      <div class="slide p-8 sm:p-12 flex-1 hidden flex-col justify-between" data-index="6">
+        <div>
+          <h3 class="text-xs font-bold uppercase text-sky-600 tracking-wider">Fundamentación</h3>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mt-1 mb-6">Fundamentos que Justifican el Estudio</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl border border-slate-200 bg-white">
+              <div class="text-xs font-bold text-sky-700 uppercase mb-1">Relevancia Social</div>
+              <p class="text-slate-600 text-xs">Aporta datos urgentes sobre inequidad educativa para guiar políticas públicas distritales.</p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-white">
+              <div class="text-xs font-bold text-teal-700 uppercase mb-1">Aporte Disciplinar</div>
+              <p class="text-slate-600 text-xs">Documenta la sociología de la pandemia silenciosa de desigualdad digital post-2020.</p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-white">
+              <div class="text-xs font-bold text-amber-700 uppercase mb-1">Viabilidad</div>
+              <p class="text-slate-600 text-xs">Factibilidad metodológica alta al delimitar trabajo de campo a instituciones y periodos cerrados.</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-3 rounded-lg bg-teal-50 border border-teal-200 text-teal-800 text-xs text-center font-medium">
+          Triangulación validada: Pertinencia + Aporte Científico + Viabilidad Empírica
+        </div>
+      </div>
+
+      <!-- Slide 7: Rigor Científico -->
+      <div class="slide p-8 sm:p-12 flex-1 hidden flex-col justify-between" data-index="7">
+        <div>
+          <h3 class="text-xs font-bold uppercase text-sky-600 tracking-wider">Metodología Crítica</h3>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mt-1 mb-6">Rigor Científico: Errores Evitados</h2>
+          
+          <div class="space-y-3 text-xs">
+            <div class="p-3 bg-slate-50 border-l-4 border-l-rose-500 rounded-r-xl">
+              <span class="text-rose-700 font-bold block mb-0.5">Riesgo 1: Prescribir soluciones prematuras</span>
+              <span class="text-slate-600">Estrategia: Enfoque inductivo-comprensivo para entender el fenómeno sin imponer tecnología prefabricada.</span>
+            </div>
+            <div class="p-3 bg-slate-50 border-l-4 border-l-rose-500 rounded-r-xl">
+              <span class="text-rose-700 font-bold block mb-0.5">Riesgo 2: Acumular múltiples problemas inconexos</span>
+              <span class="text-slate-600">Estrategia: Estricta delimitación en una sola categoría central en población específica.</span>
+            </div>
+            <div class="p-3 bg-slate-50 border-l-4 border-l-rose-500 rounded-r-xl">
+              <span class="text-rose-700 font-bold block mb-0.5">Riesgo 3: Uso inadecuado del alcance</span>
+              <span class="text-slate-600">Estrategia: Diseño cualitativo fenomenológico puro centrado en vivencias y no en conteo estadístico.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Referencias -->
+      <div class="slide p-8 sm:p-12 flex-1 hidden flex-col justify-between" data-index="8">
+        <div>
+          <h3 class="text-xs font-bold uppercase text-sky-600 tracking-wider">Bibliografía</h3>
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mt-1 mb-6">Fundación Teórica y Metodológica</h2>
+          
+          <div class="space-y-3 text-xs font-serif text-slate-700">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              Bonilla-Castro, E., & Rodríguez, S. (2013). <em>Más Allá del Dilema de los Métodos: La investigación en ciencias sociales.</em> Ediciones Uniandes.
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              Hernández-Sampieri, R., & Mendoza, C. P. (2018). <em>Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta.</em> McGraw Hill México.
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              Ramos Galarza, C. A. (2016). La pregunta de investigación. <em>Revista PUCE</em>, (103), 23-32.
+            </div>
+          </div>
+        </div>
+        <div class="text-center pt-4 text-xs font-sans text-slate-500">
+          Fin de la presentación · Lista para socialización de anteproyecto
+        </div>
+      </div>
+
+      <!-- Controles de navegación de Diapositivas -->
+      <div class="px-6 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
+        <button id="prevSlideBtn" onclick="changeSlide(-1)" class="px-4 py-2 rounded-xl bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 transition font-medium text-xs flex items-center gap-1.5 shadow-sm">
+          <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          Anterior
+        </button>
+
+        <!-- Puntos interactivos -->
+        <div id="dotsContainer" class="flex items-center gap-1.5"></div>
+
+        <button id="nextSlideBtn" onclick="changeSlide(1)" class="px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800 transition font-medium text-xs flex items-center gap-1.5 shadow-sm">
+          Siguiente
+          <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer con datos y ficha de contacto sin logos externos -->
+  <footer id="contacto-info" class="bg-white border-t border-slate-200 py-10 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-slate-500">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-slate-900 text-white flex items-center justify-center font-bold text-sm">
+          IED
+        </div>
+        <div>
+          <p class="font-bold text-slate-900">Proyecto de Investigación: Brecha Digital</p>
+          <p class="text-xs text-slate-500">Bogotá Distrito Capital · Competencias investigativas</p>
+          <p class="text-xs text-slate-400">Actividad 5 - Formulando problemas a partir de necesidades del contexto</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6 text-xs text-slate-600">
+        <span><strong>Investigador:</strong> Rubén Darío García</span>
+        <button onclick="window.print()" class="hover:text-sky-600 flex items-center gap-1 transition">
+          <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+          Imprimir / Guardar PDF
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lógica en JavaScript para modos y diapositivas -->
+  <script>
+    // Inicializar Lucide Icons
+    lucide.createIcons();
+
+    // Estado del Deck
+    let currentSlide = 1;
+    const totalSlides = 8;
+
+    function switchMode(mode) {
+      const portal = document.getElementById('portalView');
+      const deck = document.getElementById('deckView');
+      const btnPortal = document.getElementById('viewPortalBtn');
+      const btnDeck = document.getElementById('viewDeckBtn');
+
+      if (mode === 'deck') {
+        portal.classList.add('hidden');
+        deck.classList.remove('hidden');
+        deck.classList.add('flex');
+        
+        btnDeck.className = "px-3 py-1.5 rounded-lg bg-white shadow-sm text-slate-900 font-semibold transition flex items-center gap-1.5";
+        btnPortal.className = "px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5";
+      } else {
+        deck.classList.add('hidden');
+        deck.classList.remove('flex');
+        portal.classList.remove('hidden');
+
+        btnPortal.className = "px-3 py-1.5 rounded-lg bg-white shadow-sm text-slate-900 font-semibold transition flex items-center gap-1.5";
+        btnDeck.className = "px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5";
+      }
+      lucide.createIcons();
+    }
+
+    // Navegación de Diapositivas
+    function renderSlide() {
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach(slide => {
+        const idx = parseInt(slide.getAttribute('data-index'));
+        if (idx === currentSlide) {
+          slide.classList.remove('hidden');
+          slide.classList.add('slide-active');
+        } else {
+          slide.classList.add('hidden');
+          slide.classList.remove('slide-active');
+        }
+      });
+
+      // Actualizar contador
+      document.getElementById('slideIndicator').textContent = `${currentSlide} / ${totalSlides}`;
+
+      // Render dots
+      const dotsContainer = document.getElementById('dotsContainer');
+      dotsContainer.innerHTML = '';
+      for (let i = 1; i <= totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = `w-2 h-2 rounded-full transition-all ${i === currentSlide ? 'bg-sky-600 w-5' : 'bg-slate-300 hover:bg-slate-400'}`;
+        dot.onclick = () => { currentSlide = i; renderSlide(); };
+        dotsContainer.appendChild(dot);
+      }
+
+      // Deshabilitar botones en extremos
+      document.getElementById('prevSlideBtn').disabled = (currentSlide === 1);
+      document.getElementById('nextSlideBtn').disabled = (currentSlide === totalSlides);
+      document.getElementById('prevSlideBtn').classList.toggle('opacity-50', currentSlide === 1);
+      document.getElementById('nextSlideBtn').classList.toggle('opacity-50', currentSlide === totalSlides);
+
+      lucide.createIcons();
+    }
+
+    function changeSlide(direction) {
+      const target = currentSlide + direction;
+      if (target >= 1 && target <= totalSlides) {
+        currentSlide = target;
+        renderSlide();
+      }
+    }
+
+    // Navegación con teclado (Flechas Izquierda / Derecha)
+    document.addEventListener('keydown', (e) => {
+      const isDeckVisible = !document.getElementById('deckView').classList.contains('hidden');
+      if (isDeckVisible) {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+          changeSlide(1);
+        } else if (e.key === 'ArrowLeft') {
+          changeSlide(-1);
+        }
+      }
+    });
+
+    // Iniciar dots al cargar
+    renderSlide();
+  </script>
+</body>
+</html>
